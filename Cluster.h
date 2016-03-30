@@ -55,7 +55,7 @@ namespace Clustering {
 
             // functions
             void compute();
-            bool equal(const Point &) const;
+            bool equal(const Point &p) const;
             void toInfinity();
         };
 
@@ -67,8 +67,8 @@ namespace Clustering {
         Cluster(unsigned int d);
 
         // The big three: cpy ctor, overloaded operator=, dtor
-        Cluster(const Cluster &);
-        Cluster &operator=(const Cluster &);
+        Cluster(const Cluster &c);
+        Cluster &operator=(const Cluster &c);
         ~Cluster();
 
         // Getters
@@ -77,8 +77,8 @@ namespace Clustering {
         unsigned int getId() const;
 
         // Add/remove: They allow calling c1.add(c2.remove(p));
-        void add(const Point &);
-        const Point &remove(const Point &);
+        void add(const Point &p);
+        const Point &remove(const Point &p);
         bool contains(const Point &p) const;
 
         // Centroid functions
@@ -91,8 +91,8 @@ namespace Clustering {
 
         // IO
         // - Friends
-        friend std::ostream &operator<<(std::ostream &, const Cluster &);
-        friend std::istream &operator>>(std::istream &, Cluster &);
+        friend std::ostream &operator<<(std::ostream &os, const Cluster &c);
+        friend std::istream &operator>>(std::istream &is, Cluster &c);
 
         // - Friends
         friend bool operator==(const Cluster &lhs, const Cluster &rhs);
