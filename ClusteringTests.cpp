@@ -1556,7 +1556,6 @@ void test_cluster_assignment(ErrorContext &ec, unsigned int numRuns) {
             c2.add(Point(10));
             c2.add(Point(10));
 
-            c2 = c1;
 
             pass = (c1 == c2);
 
